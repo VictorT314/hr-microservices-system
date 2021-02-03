@@ -8,10 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.system.hrpayroll.entities.Worker;
 
-
-
 @Component
-@FeignClient(name = "hr-worker", url = "localhost:8001", path = "/workers")
+@FeignClient(name = "hr-worker", path = "/workers")
 public interface WorkerFeignClient {
 
 	//WEB SERVICE CALLOUT FOR WORKER ID
