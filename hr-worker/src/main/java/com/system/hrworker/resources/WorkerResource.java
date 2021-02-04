@@ -30,14 +30,25 @@ public class WorkerResource {
 	@Autowired
 	private WorkerRepository repository;
 
+	//GET ALL WORKERS
 	@GetMapping
 	public ResponseEntity<List<Worker>> findAll(){
 		List<Worker> list = repository.findAll();
 		return ResponseEntity.ok(list);
 	}
 	
+	//GET WORKERS BY ID
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<Worker> findByID(@PathVariable Long id){
+		
+		//TIMEOUT TEST
+		/*
+		try {
+			Thread.sleep(3000L);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		*/
 		
 		//PRINT PORT ON THE LOG
 		logger.info("Port = " + env.getProperty("local.server.port"));
